@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #a58d66;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #089ec0c2;
+    padding: 10px 20px;
+}
+
+.navbar img {
+    height: 60px;
+    width: 60px;
+}
+
+/* Links do menu */
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    color: #ffffff;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Botão hambúrguer */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        background-color: #089ec0;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+}
+
+.img-landingpage {
+    width: 100%;
+    height: 100vh;
+    background-image: url("img/lies_of_p_ergo_rain.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
