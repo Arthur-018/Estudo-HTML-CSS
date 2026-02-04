@@ -1,38 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inimigos</title>
-    <link rel="stylesheet" href="../Styles/inimigos.css">
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Irish+Grover&family=Orbitron:wght@400..900&family=Story+Script&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enciclopédia de Inimigos — Lies of P</title>
+
+  <link rel="stylesheet" href="../Styles/inimigos.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1 class="h1Inimigos"><strong>Inimigos jogo Base</strong></h1>
-    <h2 class="h2Inimigos"><strong>1. Marionetes (Puppets)</strong></h2>
-    <ul class="listaInimigos">
-        <li><strong>Marionete de Treino:</strong> A mais básica, armada com bastões.</li>
-        <li><strong>Marionete Policial:</strong> Versões maiores e mais fortes que usam cacetetes.</li>
-        <li><strong>Marionete de Limpeza (Maid):</strong> Usam vassouras ou serras e são bem rápidas.</li>
-        <li><strong>Marionete Dentista/Cão:</strong>Cães robóticos rápidos que atacam em grupo.</li>
-        <li><strong>Marionete Atiradora:</strong> Equipadas com rifles ou mosquetes.</li>
-        <li><strong>Marionete de Choque:</strong> Carregam bastões elétricos (comuns em Venigni Works).</li>
-        <li><strong>Marionete "Butler" (Mordomo):</strong>
-        Lançam garrafas de vinho explosivas.</li>
-        <li><Strong>Marionete Gigante de Carroça:</Strong>
-       Aqueles brutamontes que carregam rodas ou pedaços de ferro.</li>
-       <li><strong>Marionete de Aranha (Opera House):</strong> Marionetes bizarras que parecem aranhas e soltam fios.</li>
-       <li><strong>Marionetes de Arremesso:</strong> Pequenas e chatas, jogam bombas de fogo ou ácido.</li>
-    </ul>
+  <header class="topbar">
+    <div class="brand">
+      <img src="../img/iconSemFundo.png" alt="Lies of P" class="brand__icon" />
+      <div class="brand__text">
+        <h1>Lista Inimigos</h1>
+        <p>Lies of P</p>
+      </div>
+    </div>
+    <a class="btn-back" href="../index.html">Voltar</a>
+  </header>
 
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="search">
+        <input id="searchInput" type="text" placeholder="Pesquisar inimigo..." autocomplete="off" />
+      </div>
 
+      <div class="panel">
+        <h2 class="panel__title">Categorias</h2>
+        <div id="categoryList" class="category-list" aria-label="Lista de categorias"></div>
+      </div>
 
-    <script src="../Scripts/inimgos.js"></script>
-    <main></main>
+      <div class="panel" id="enemyPanel" data-hidden="true">
+        <div class="panel__row">
+          <h2 class="panel__title">Inimigos</h2>
+          <span id="activeCategoryBadge" class="mini-badge">—</span>
+        </div>
+        <div id="enemyList" class="enemy-list" aria-label="Lista de inimigos"></div>
+      </div>
+    </aside>
+
+    <section class="content" aria-live="polite">
+      <div class="empty-state" id="emptyState">
+        <h2>Selecione um inimigo</h2>
+      </div>
+
+      <div class="details hidden" id="details">
+        <div class="details__header">
+          <h2 id="enemyName">—</h2>
+          <span class="badge" id="enemyCategory">—</span>
+          <button class="btn-close" id="closeBtn" type="button" aria-label="Fechar">✕</button>
+        </div>
+
+        <div class="details__grid">
+          <div class="card">
+            <h3>Descrição</h3>
+            <p id="enemyDescription">—</p>
+          </div>
+
+          <div class="card media">
+            <h3>Imagem do inimigo</h3>
+            <div class="media__frame">
+              <img id="enemyImage" alt="" loading="lazy" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card location">
+          <div class="location__head">
+            <div>
+              <h3>Local</h3>
+              <p class="location__meta">
+                <span id="enemyLocation">—</span>
+                <span class="sep">•</span>
+                <span id="enemyChapter">—</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="media__frame media__frame--wide">
+            <img id="locationImage" alt="" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../Scripts/inimgos.js"></script>
 </body>
-
 </html>
