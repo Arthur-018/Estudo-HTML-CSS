@@ -1,3 +1,6 @@
+// Enciclopédia de Inimigos — Lies of P
+// Categorias clicáveis -> lista aparece apenas após clicar na categoria
+// Clique no inimigo -> mostra descrição + imagem do inimigo + local (capítulo) + imagem do local
 
 const ENEMIES = [
   // 1) Marionetes (Puppets)
@@ -472,10 +475,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       btn.addEventListener("click", () => {
         if (activeEnemyId === e.id) {
-         
+          // toggle close
           activeEnemyId = null;
           clearDetails();
-         
+          // update button states
           document.querySelectorAll(".enemy-btn").forEach((b) =>
             b.classList.remove("is-active")
           );
@@ -522,7 +525,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".enemy-btn").forEach((b) => b.classList.remove("is-active"));
   });
 
-  
+  // init: só categorias visíveis
   setEnemyPanelVisible(false);
   clearDetails();
   renderCategories("");
