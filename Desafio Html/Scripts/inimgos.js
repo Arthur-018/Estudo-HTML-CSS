@@ -2,7 +2,7 @@
 // Categorias clicáveis -> lista aparece apenas após clicar na categoria
 // Clique no inimigo -> mostra descrição + imagem do inimigo + local (capítulo) + imagem do local
 
-const ENEMIES = [
+const BASE_ENEMIES = [
   // 1) Marionetes (Puppets)
   {
     id: "marionete-basica",
@@ -337,6 +337,336 @@ const ENEMIES = [
   },
 ];
 
+
+const DLC_ENEMIES = [
+  {
+    "id": "dlc-marionette-puppet",
+    "name": "Marionette Puppet",
+    "category": "Marionetes (Puppets)",
+    "description": "Puppets coloridos com cabeça pontuda, comuns no DLC.",
+    "img": "../img/dlc/enemies/marionette-puppet.png",
+    "location": {
+      "name": "Carnival Garden",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/carnival-garden.png"
+    }
+  },
+  {
+    "id": "dlc-miner-puppet",
+    "name": "Miner Puppet",
+    "category": "Marionetes (Puppets)",
+    "description": "Puppet minerador com duas picaretas, agressivo em curto alcance.",
+    "img": "../img/dlc/enemies/miner-puppet.png",
+    "location": {
+      "name": "Ergo Mining Site",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/ergo-mining-site.png"
+    }
+  },
+  {
+    "id": "dlc-flying-miner-puppet",
+    "name": "Flying Miner Puppet",
+    "category": "Marionetes (Puppets)",
+    "description": "Versão voadora do minerador; ataca de ângulos altos e surpreende.",
+    "img": "../img/dlc/enemies/flying-miner-puppet.png",
+    "location": {
+      "name": "Ergo Mining Site",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/ergo-mining-site.png"
+    }
+  },
+  {
+    "id": "dlc-mining-machine-carrier-puppet",
+    "name": "Mining Machine (Carrier Puppet)",
+    "category": "Marionetes (Puppets)",
+    "description": "Máquina/puppet que arremessa rochas e causa pressão à distância.",
+    "img": "../img/dlc/enemies/mining-machine-carrier-puppet.png",
+    "location": {
+      "name": "Ergo Mining Site",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/ergo-mining-site.png"
+    }
+  },
+  {
+    "id": "dlc-grand-mining-machine",
+    "name": "Grand Mining Machine",
+    "category": "Marionetes (Puppets)",
+    "description": "Máquina grande de mineração; golpes pesados e alcance alto.",
+    "img": "../img/dlc/enemies/grand-mining-machine.png",
+    "location": {
+      "name": "Ergo Mining Site",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/ergo-mining-site.png"
+    }
+  },
+  {
+    "id": "dlc-carnival-sweeper-puppet",
+    "name": "Carnival Sweeper Puppet",
+    "category": "Marionetes (Puppets)",
+    "description": "Puppet do carnaval com vassoura; ataques em arco e empurrões.",
+    "img": "../img/dlc/enemies/carnival-sweeper-puppet.png",
+    "location": {
+      "name": "Carnival Garden",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/carnival-garden.png"
+    }
+  },
+  {
+    "id": "dlc-crowned-puppet-crowned-carcass",
+    "name": "Crowned Puppet (Crowned Carcass)",
+    "category": "Marionetes (Puppets)",
+    "description": "Criatura com ‘coroa’ congelada; padrão de ataques mais insistente.",
+    "img": "../img/dlc/enemies/crowned-puppet-crowned-carcass.png",
+    "location": {
+      "name": "Frozen Coast",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/frozen-coast.png"
+    }
+  },
+  {
+    "id": "dlc-arche-puppet",
+    "name": "Arche Puppet",
+    "category": "Marionetes (Puppets)",
+    "description": "Puppet prateada veloz; foca em combos rápidos.",
+    "img": "../img/dlc/enemies/arche-puppet.png",
+    "location": {
+      "name": "Ancient Ruins Excavation Site",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/ancient-ruins-excavation-site.png"
+    }
+  },
+  {
+    "id": "dlc-arche-puppet-caster",
+    "name": "Arche Puppet Caster",
+    "category": "Marionetes (Puppets)",
+    "description": "Versão conjuradora; ataques à distância com mãos brilhando.",
+    "img": "../img/dlc/enemies/arche-puppet-caster.png",
+    "location": {
+      "name": "Ancient Ruins Excavation Site",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/ancient-ruins-excavation-site.png"
+    }
+  },
+  {
+    "id": "dlc-kangaroo-carcass",
+    "name": "Kangaroo Carcass",
+    "category": "Carcaças e Mutantes (Carcasses)",
+    "description": "Carcaça ágil que salta e pressiona com investidas rápidas.",
+    "img": "../img/dlc/enemies/kangaroo-carcass.png",
+    "location": {
+      "name": "Hall of Adventure",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/hall-of-adventure.png"
+    }
+  },
+  {
+    "id": "dlc-fish-carcass",
+    "name": "Fish Carcass",
+    "category": "Carcaças e Mutantes (Carcasses)",
+    "description": "Salta de áreas com água/frio para emboscadas curtas.",
+    "img": "../img/dlc/enemies/fish-carcass.png",
+    "location": {
+      "name": "Sea Cliffs",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/sea-cliffs.png"
+    }
+  },
+  {
+    "id": "dlc-wolf-carcass",
+    "name": "Wolf Carcass",
+    "category": "Carcaças e Mutantes (Carcasses)",
+    "description": "Carcaça canina rápida; costuma atacar em sequências e flancos.",
+    "img": "../img/dlc/enemies/wolf-carcass.png",
+    "location": {
+      "name": "Strange Forest",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/strange-forest.png"
+    }
+  },
+  {
+    "id": "dlc-polar-bear-carcass",
+    "name": "Polar Bear Carcass",
+    "category": "Carcaças e Mutantes (Carcasses)",
+    "description": "Inimigo grande e resistente; pressão com agarrões/avanços.",
+    "img": "../img/dlc/enemies/polar-bear-carcass.png",
+    "location": {
+      "name": "Strange Forest",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/strange-forest.png"
+    }
+  },
+  {
+    "id": "dlc-ape-carcass",
+    "name": "Ape Carcass",
+    "category": "Carcaças e Mutantes (Carcasses)",
+    "description": "Primate corrompido; força e mobilidade médias com pancadas fortes.",
+    "img": "../img/dlc/enemies/ape-carcass.png",
+    "location": {
+      "name": "Zoo Tram Station",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/zoo-tram-station.png"
+    }
+  },
+  {
+    "id": "dlc-gorilla-carcass",
+    "name": "Gorilla Carcass",
+    "category": "Carcaças e Mutantes (Carcasses)",
+    "description": "Versão maior do primata; golpes pesados e alcance maior.",
+    "img": "../img/dlc/enemies/gorilla-carcass.png",
+    "location": {
+      "name": "Savanna Experience Center",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/savanna-experience-center.png"
+    }
+  },
+  {
+    "id": "dlc-elephant-carcass",
+    "name": "Elephant Carcass",
+    "category": "Carcaças e Mutantes (Carcasses)",
+    "description": "Carcaça enorme com carga e impacto; costuma guardar rotas.",
+    "img": "../img/dlc/enemies/elephant-carcass.png",
+    "location": {
+      "name": "Savanna Experience Center",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/savanna-experience-center.png"
+    }
+  },
+  {
+    "id": "dlc-advanced-elephant-carcass",
+    "name": "Advanced Elephant Carcass",
+    "category": "Carcaças e Mutantes (Carcasses)",
+    "description": "Variante mais rápida e agressiva do Elephant Carcass.",
+    "img": "../img/dlc/enemies/advanced-elephant-carcass.png",
+    "location": {
+      "name": "Savanna Experience Center",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/savanna-experience-center.png"
+    }
+  },
+  {
+    "id": "dlc-rolling-carcass",
+    "name": "Rolling Carcass",
+    "category": "Carcaças e Mutantes (Carcasses)",
+    "description": "Carcaça que rola e atropela; perigosa em corredores.",
+    "img": "../img/dlc/enemies/rolling-carcass.png",
+    "location": {
+      "name": "Greenhouse Outdoor Garden",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/greenhouse-outdoor-garden.png"
+    }
+  },
+  {
+    "id": "dlc-slinging-carcass",
+    "name": "Slinging Carcass",
+    "category": "Carcaças e Mutantes (Carcasses)",
+    "description": "Variante de longo alcance que arremessa projéteis.",
+    "img": "../img/dlc/enemies/slinging-carcass.png",
+    "location": {
+      "name": "Greenhouse Interior",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/greenhouse-interior.png"
+    }
+  },
+  {
+    "id": "dlc-carcass-shooter",
+    "name": "Carcass Shooter",
+    "category": "Carcaças e Mutantes (Carcasses)",
+    "description": "Atirador à distância; aplica status (ex.: Frost/Decay) dependendo da área.",
+    "img": "../img/dlc/enemies/carcass-shooter.png",
+    "location": {
+      "name": "Zelator Underground Facility (First Visit)",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/zelator-underground-facility-first-visit.png"
+    }
+  },
+  {
+    "id": "dlc-giant-carcass",
+    "name": "Giant Carcass",
+    "category": "Carcaças e Mutantes (Carcasses)",
+    "description": "Carcaça grande com múltiplos membros; alcance amplo.",
+    "img": "../img/dlc/enemies/giant-carcass.png",
+    "location": {
+      "name": "Ancient Ruins Excavation Site",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/ancient-ruins-excavation-site.png"
+    }
+  },
+  {
+    "id": "dlc-shark-carcass",
+    "name": "Shark Carcass",
+    "category": "Inimigos de Elite (Mini-bosses)",
+    "description": "Mini-boss carcaça de tubarão; alto dano e pressão em área.",
+    "img": "../img/dlc/enemies/shark-carcass.png",
+    "location": {
+      "name": "Krat Lighthouse",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/krat-lighthouse.png"
+    }
+  },
+  {
+    "id": "dlc-facility-patient",
+    "name": "Facility Patient",
+    "category": "Humanos e Alquimistas",
+    "description": "Paciente hostil; movimentos erráticos e ataques curtos.",
+    "img": "../img/dlc/enemies/facility-patient.png",
+    "location": {
+      "name": "Zelator Underground Facility (First Visit)",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/zelator-underground-facility-first-visit.png"
+    }
+  },
+  {
+    "id": "dlc-facility-prisoner",
+    "name": "Facility Prisoner",
+    "category": "Humanos e Alquimistas",
+    "description": "Prisioneiro da instalação; agressivo e resistente.",
+    "img": "../img/dlc/enemies/facility-prisoner.png",
+    "location": {
+      "name": "Zelator Underground Facility (First Visit)",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/zelator-underground-facility-first-visit.png"
+    }
+  },
+  {
+    "id": "dlc-advanced-facility-prisoner",
+    "name": "Advanced Facility Prisoner",
+    "category": "Inimigos de Elite (Mini-bosses)",
+    "description": "Variante mais forte do prisioneiro; combos e dano maiores.",
+    "img": "../img/dlc/enemies/advanced-facility-prisoner.png",
+    "location": {
+      "name": "Zelator Underground Facility (Second Visit)",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/zelator-underground-facility-second-visit.png"
+    }
+  },
+  {
+    "id": "dlc-facility-doctor",
+    "name": "Facility Doctor",
+    "category": "Humanos e Alquimistas",
+    "description": "Inimigo humano com arma de gelo; controle de espaço à distância.",
+    "img": "../img/dlc/enemies/facility-doctor.png",
+    "location": {
+      "name": "Coolant Control Room",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/coolant-control-room.png"
+    }
+  },
+  {
+    "id": "dlc-robed-swordsman-silent-evangelist",
+    "name": "Robed Swordsman (Silent Evangelist)",
+    "category": "Humanos e Alquimistas",
+    "description": "Espadachim veloz; ataques rápidos e pressão constante.",
+    "img": "../img/dlc/enemies/robed-swordsman-silent-evangelist.png",
+    "location": {
+      "name": "Monad Charity House",
+      "chapter": "DLC Overture",
+      "img": "../img/dlc/locations/monad-charity-house.png"
+    }
+  }
+];
+
+
+
 function normalize(s) {
   return String(s)
     .toLowerCase()
@@ -357,6 +687,7 @@ function uniqueCategories(enemies) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const sectionListEl = document.getElementById("sectionList");
   const categoryListEl = document.getElementById("categoryList");
   const enemyPanelEl = document.getElementById("enemyPanel");
   const activeCategoryBadgeEl = document.getElementById("activeCategoryBadge");
@@ -376,8 +707,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const enemyChapter = document.getElementById("enemyChapter");
   const locationImage = document.getElementById("locationImage");
 
+  let activeSection = "JOGO BASE";
   let activeCategory = null;
   let activeEnemyId = null;
+
+  function getActiveEnemies() {
+    return activeSection === "DLC" ? DLC_ENEMIES : BASE_ENEMIES;
+  }
 
   function setEnemyPanelVisible(visible) {
     enemyPanelEl.dataset.hidden = visible ? "false" : "true";
@@ -400,15 +736,49 @@ document.addEventListener("DOMContentLoaded", () => {
     locationImage.alt = "";
   }
 
+
+  function renderSections() {
+    if (!sectionListEl) return;
+
+    sectionListEl.innerHTML = "";
+    const sections = ["JOGO BASE", "DLC"];
+
+    sections.forEach((sec) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "cat-btn" + (sec === activeSection ? " is-active" : "");
+      btn.textContent = sec;
+
+      btn.addEventListener("click", () => {
+        if (activeSection === sec) return;
+
+        activeSection = sec;
+        activeCategory = null;
+        activeEnemyId = null;
+
+        // limpa busca e UI
+        searchInput.value = "";
+        setEnemyPanelVisible(false);
+        clearDetails();
+
+        // re-render
+        renderSections();
+        renderCategories("");
+      });
+
+      sectionListEl.appendChild(btn);
+    });
+  }
+
   function renderCategories(filterText = "") {
     const q = normalize(filterText.trim());
-    const cats = uniqueCategories(ENEMIES);
+    const cats = uniqueCategories(getActiveEnemies());
 
     // se estiver pesquisando, filtra categorias que tenham algum inimigo batendo
     const filteredCats = !q
       ? cats
       : cats.filter((c) =>
-          ENEMIES.some(
+          getActiveEnemies().some(
             (e) =>
               e.category === c &&
               (normalize(e.name).includes(q) || normalize(e.category).includes(q))
@@ -453,7 +823,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!activeCategory) return;
 
     const q = normalize(filterText.trim());
-    const list = ENEMIES.filter((e) => e.category === activeCategory).filter((e) => {
+    const list = getActiveEnemies().filter((e) => e.category === activeCategory).filter((e) => {
       if (!q) return true;
       return normalize(e.name).includes(q) || normalize(e.category).includes(q);
     });
@@ -492,7 +862,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function selectEnemy(id) {
-    const e = ENEMIES.find((x) => x.id === id);
+    const e = getActiveEnemies().find((x) => x.id === id);
     if (!e) return;
 
     activeEnemyId = id;
@@ -528,6 +898,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // init: só categorias visíveis
   setEnemyPanelVisible(false);
   clearDetails();
+  renderSections();
   renderCategories("");
 
   // pesquisa: filtra categorias e (se categoria ativa) lista
